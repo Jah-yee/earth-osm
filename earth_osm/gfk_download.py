@@ -184,7 +184,7 @@ def _parse_md5_file(md5_path: str):
 def _build_versioned_url(base_url: str, remote_filename: Optional[str]) -> str:
     if not remote_filename:
         return base_url
-    return urljoin(base_url, remote_filename)
+    return urljoin(base_url.rstrip("/") + "/", remote_filename)
 def download_pbf(
     url,
     update,
